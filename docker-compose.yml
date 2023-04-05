@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+
+  tornado:
+    build: https://raw.githubusercontent.com/docmosis/tornado-docker/master/Dockerfile
+    ports:
+     - "${PORT}:8080"
+    volumes:
+     - ./templates:/home/docmosis/templates
+    env_file:
+      - .env
+    environment:
+      PORT: ${PORT}
+      DOCMOSIS_KEY: ${DOCMOSIS_KEY}
+      DOCMOSIS_SITE: ${DOCMOSIS_SITE}
+      DOCMOSIS_ADMINPW: ${DOCMOSIS_ADMINPW}
